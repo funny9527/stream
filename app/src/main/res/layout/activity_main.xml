@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+
+    <Button
+        android:id="@+id/vod"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="vod test"/>
+    
+    <Button
+        android:id="@+id/live"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="live test"/>
+    
+    <Button
+        android:id="@+id/stopvod"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="stop vod"/>
+    
+    <Button
+        android:id="@+id/stoplive"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="stop live"/>
+    
+    <Button
+        android:id="@+id/mjpeg"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="record"/>
+    <Button
+        android:id="@+id/stopmjpeg"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="stop record"/>
+    <Button
+        android:id="@+id/toyuv"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="to yuv"/>
+    <Button
+        android:id="@+id/play"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="play sdl"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        >
+        <Button
+        android:id="@+id/max"
+        android:layout_width="100dip"
+        android:layout_height="60dip"
+        android:text="max"/>
+        
+        <Button
+        android:id="@+id/min"
+        android:layout_width="100dip"
+        android:layout_height="60dip"
+        android:text="min"/>
+        
+        <Button
+        android:id="@+id/net"
+        android:layout_width="100dip"
+        android:layout_height="60dip"
+        android:text="net"/>
+    </LinearLayout>
+
+</LinearLayout>

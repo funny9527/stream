@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+import org.apache.tools.ant.taskdefs.condition.Os
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.bandq.stream"
+        minSdkVersion 16
+        targetSdkVersion 19
+
+        ndk {
+            moduleName "avcodec"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'src/main/libs'
+            jni.srcDirs = []
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.0.0'
+}
+
+task ndkBuild(type : Exec, description : 'compile jni via NDK') {
+    println('execute ndk-build')
+    def ndkdir = project.plugins.findPlugin('com.android.application').sdkHandler.getNdkFolder().absolutePath
+    def ndkpath = ndkdir
+    println(ndkpath)
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        ndkpath = ndkdir + '/ndk-build.cmd'
+    } else {
+        ndkpath = ndkdir + '/ndk-build'
+    }
+
+    commandLine ndkpath, '-j8','-C',file('src/main/jni').absolutePath
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}
